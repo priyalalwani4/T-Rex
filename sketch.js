@@ -42,7 +42,7 @@ function setup() {
   trex.addAnimation("collided", trex_collided);
   trex.scale = 0.5;
   
-  ground = createSprite(200,180,400,20);
+  ground = createSprite(width/2,height - 20,400,20);
   ground.addImage("ground",groundImage);
   ground.x = ground.width /2;
   ground.velocityX = -(6 + 3*score/100);
@@ -71,7 +71,7 @@ function setup() {
 function draw() {
   //trex.debug = true;
   background("blue");
-  text("Score: "+ score, 500,50);
+  text("Score: "+ score,width - 10,50);
   
   if (gameState===PLAY){
     score = score + Math.round(getFrameRate()/60);
@@ -145,7 +145,7 @@ function spawnClouds() {
 
 function spawnObstacles() {
   if(frameCount % 60 === 0) {
-    var obstacle = createSprite(600,165,10,40);
+    var obstacle = createSprite(width,height - 10,10,40);
     //obstacle.debug = true;
     obstacle.velocityX = -(6 + 3*score/100);
     
